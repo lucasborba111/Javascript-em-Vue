@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+      
+        
+    </style>
+
+    <div id="app"> 
+        
+        <ul>
+            <li v-for="curso in cursos" v-text="curso"></li>
+        </ul>
+
+        <ul>
+            <li v-for="(curso, chave) in cursos">{{chave}} {{curso}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="(curso, chave) in cursos" v-text="chave + '-'+ curso"></li>
+        </ul>
+
+        
+
+    </div>
+
+    <script>
+        const component = new Vue(
+            {
+                el: '#app',
+                data: { 
+                    cursos: ['Angular', 'React', 'Vue', 'Ionic', 'Expo']
+                },
+                methods:{
+                    
+                    }
+                }
+        );
+    </script>
+</body>
+</html>

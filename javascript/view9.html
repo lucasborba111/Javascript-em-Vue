@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="./vue.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <style>
+      
+        
+    </style>
+
+    <div id="app"> 
+    
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        id
+                    </th>
+                    <th>
+                        Titulo
+                    </th>
+                    <th>
+                        Descrição
+                    </th>
+                </tr>
+            </thead>
+            <tbody v-for="(curso, key) in cursoDetalhe">
+                <td>
+                    {{key}}
+                </td>
+                <td>
+                    {{curso.titulo}}
+                </td>
+                <td>
+                    {{curso.descricao}}
+                </td>
+            </tbody>
+        </table>
+
+    </div>
+
+    <script>
+        const component = new Vue(
+            {
+                el: '#app',
+                data: { 
+                    cursos: ['Angular', 'React', 'Vue', 'Ionic', 'Expo'],
+                    cursoDetalhe: {
+                        1000: {
+                            titulo: 'React',
+                            desc: 'Altamente tecnológico'
+                        },
+                        1001: {
+                            titulo: 'Angular',
+                            desc: 'Super fácil'
+                        },
+                    }
+                },
+                methods:{
+                    
+                    }
+                }
+        );
+    </script>
+</body>
+</html>

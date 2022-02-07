@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+      
+        
+    </style>
+    <div id="app"> 
+        <a href="http://jorgesantana.net.br" target="_blank" @click="previnir($event)">
+            tata é fota
+        </a>
+        <input @keyup="digitando($event)">
+        <input @keyup.x="digitando($event)">
+        <input @keyup.Enter="digitando($event)">
+
+        <div>{{tecla}}</div>
+    </div>
+    <script>
+        const component = new Vue(
+            {
+                el: '#app',
+                data: {
+                    tecla: ''
+                },
+                methods:{
+                previnir(event){
+                    event.preventDefault()
+                },
+                digitando(teclas){
+                    this.tecla += teclas.key
+                }
+                    }
+                }
+        );
+    </script>
+</body>
+</html>

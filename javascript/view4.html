@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+      
+        
+    </style>
+
+    <div id="app"> 
+        <p>Quantidade no banco: 
+            <span v-if="hidden">
+                R$ {{valor}}
+            </span>
+        </p>
+         <button @click="hidden = !hidden">
+             <span v-if="hidden">Ocultar saldo</span>
+             <span v-if="!hidden">Exibir saldo</span>
+
+         </button>
+         <input id="years" type="number" @blur="setIdade()">
+         <p v-if="idade > 18"> Maior que 18 </p>
+         <p v-else> Menor que 18 </p>
+
+    </div>
+
+    <script>
+        const component = new Vue(
+            {
+                el: '#app',
+                data: { 
+                    valor: 300,
+                    hidden: false,
+                    idade: 0
+                },
+                methods:{
+                    setIdade(){
+                        this.idade = years.value
+                    }
+                    }
+                }
+        );
+    </script>
+</body>
+</html>

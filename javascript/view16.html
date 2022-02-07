@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>      
+    </style>
+</head>
+<body>
+    <div id="app" >
+        <input type="text" placeholder="Pesquisar clientes L" v-model="clientePesquisa">
+        <p  v-if="lista.length > 0" v-for="l in lista">
+            {{l.nome}}
+        </p>
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                clientePesquisa:'',
+                clientes: [
+                    {nome: 'lucas', idade: 13},
+                    {nome: 'lais', idade: 13},
+                    {nome: 'layce', idade: 13},
+                    {nome: 'laura', idade: 13},
+                ],
+                lista: []
+            },
+            methods: {},
+            computed: {},
+            watch: {
+                clientePesquisa(nome){
+                    this.lista=this.clientes.filter(p => p.nome.match(nome))
+                }
+            },
+        })
+
+    </script>
+</body>
+</html>

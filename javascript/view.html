@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .verde{
+            background-color: green;
+        }
+        .amarelo{
+            background-color: rgb(255, 238, 0);
+        }
+        .vermelho{
+            background-color: rgb(255, 0, 0);
+        }
+        .div-comum{
+            height: 50px;
+            width: 50px;
+            display: inline-block;
+        }
+        .principal{
+            height: 200px;
+            width: 200px;
+        }
+        .borda{
+            border:1px solid;
+        }
+    </style>
+    <div id="app"> 
+        <div class="borda principal" :class="color">
+        </div>
+            <hr>
+        <div @mouseover="changeColor('verde')" class="borda div-comum"></div>
+        <div @mouseover="changeColor('vermelho')" class="borda div-comum"></div>
+        <div @mouseover="changeColor('amarelo')" @mouseout="changeColor('')" class="borda div-comum"></div>
+    </div>
+    <script>
+        const component = new Vue(
+            {
+                el: '#app',
+                data: {
+                    color: ''
+                },
+                methods:{
+                  changeColor(c){
+                    this.color = c
+                  }
+                    }
+                }
+        );
+    </script>
+</body>
+</html>
